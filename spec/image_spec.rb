@@ -61,4 +61,10 @@ describe Image do
     end
   end
 
+  describe "#show" do
+    it "prints out output" do #S
+      expect {image.show}.to output("OOOOO\nOOOOO\nOOOOO\nOOOOO\nOOOOO\nOOOOO\n"
+                              ).to_stdout
+    end
+  end
 end

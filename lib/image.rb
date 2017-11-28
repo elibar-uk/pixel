@@ -1,8 +1,9 @@
+require "pry"
 class Image
 
   DEFAULT_COLOUR = "O".freeze
 
-  attr_accessor  :mapper
+  attr_accessor  :mapper, :rows, :coloums
 
   def initialize(rows, coloums)
     @rows = rows
@@ -27,7 +28,11 @@ class Image
   end
 
   def clear
-    mapper.each { |m| m.map!{ |n| n = DEFAULT_COLOUR} }
+    mapper.each { |m| m.map!{ |n| n = DEFAULT_COLOUR } }
+  end
+
+  def show
+    mapper.each { |m| puts m.join("") }
   end
 
 end
