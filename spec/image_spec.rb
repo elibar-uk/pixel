@@ -11,4 +11,15 @@ describe Image do
                                 ["O","O","O","O","O","O"]])
   end
 
+  describe "#colourize" do
+    it "change pixel colour to given" do # L 2 3 A (L X Y C)
+      image.colourize(2, 3, "A")
+      expect(image.mapper).to eq([["O","O","O","O","O","O"],
+                                  ["O","O","O","O","O","O"],
+                                  ["O","A","O","O","O","O"],
+                                  ["O","O","O","O","O","O"],
+                                  ["O","O","O","O","O","O"]])
+    end
+  end
+
 end
