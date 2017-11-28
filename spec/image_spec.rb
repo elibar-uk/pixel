@@ -13,7 +13,7 @@ describe Image do
   end
 
   describe "#colourize" do
-    it "change pixel colour to given" do # L 2 3 A (L X Y C)
+    it "changes pixel colour to given" do # L 2 3 A (L X Y C)
       image.colourize(2, 3, "A")
       expect(image.mapper).to eq([["O","O","O","O","O"],
                                   ["O","O","O","O","O"],
@@ -41,6 +41,19 @@ describe Image do
       image.horizontal(3, 4, 2, "Z")
       expect(image.mapper).to eq([["O","O","O","O","O"],
                                   ["O","O","Z","Z","O"],
+                                  ["O","O","O","O","O"],
+                                  ["O","O","O","O","O"],
+                                  ["O","O","O","O","O"],
+                                  ["O","O","O","O","O"]])
+    end
+  end
+
+  describe "#clear" do
+    it "sets pixels to default colour" do #C
+      image.horizontal(3, 4, 2, "Z")
+      image.clear
+      expect(image.mapper).to eq([["O","O","O","O","O"],
+                                  ["O","O","O","O","O"],
                                   ["O","O","O","O","O"],
                                   ["O","O","O","O","O"],
                                   ["O","O","O","O","O"],

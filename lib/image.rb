@@ -19,12 +19,15 @@ class Image
   end
 
   def horizontal(x1, x2, y, c)
-    row = mapper[y-1]
     i = x1-1
-      while i <= x2-1
-        row[i] = c
-        i += 1  
+    while i <= x2-1
+      mapper[y-1][i] = c
+      i += 1
     end
+  end
+
+  def clear
+    mapper.each { |m| m.map!{ |n| n = DEFAULT_COLOUR} }
   end
 
 end
