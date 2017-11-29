@@ -2,6 +2,8 @@ require './lib/image'
 
 class Editor
 
+attr_reader :image
+
 COMMANDS =   {
    'I' => :create,
    'H' => :horizontal,
@@ -11,4 +13,8 @@ COMMANDS =   {
    'S' => :show
  }.freeze
 
+  def create(*args)
+    @image = Image.new(*args)
+  end
+  
 end
