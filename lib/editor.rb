@@ -2,7 +2,7 @@ require './lib/image'
 
 class Editor
 
-attr_reader :image
+attr_reader :image, :running
 
 COMMANDS =   {
    'I' => :create,
@@ -16,5 +16,14 @@ COMMANDS =   {
   def create(*args)
     @image = Image.new(*args)
   end
-  
+
+  def run
+    input = $stdin.gets.chomp
+    command, *args = input.split(" ")
+    case command
+    when "I"
+      create(*args)
+    end
+  end
+
 end
