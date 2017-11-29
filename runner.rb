@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require './lib/some_runner'
+require './lib/editor'
 
-SomeRunner.new.run ARGV.first
+Editor.new.run 
