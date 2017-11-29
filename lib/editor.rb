@@ -2,7 +2,7 @@ require './lib/image'
 
 class Editor
 
-attr_reader :image, :running
+attr_reader :image
 
 COMMANDS =   {
    'I' => :create,
