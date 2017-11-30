@@ -23,11 +23,21 @@ describe Editor do
         editor.execute_command(input)
       end
     end
+
     context "when input command is X" do
       let(:input) { 'X' }
       it "exits the session" do
         allow(STDIN).to receive(:gets) { input }
         expect(editor).to receive(:exit_session)
+        editor.execute_command(input)
+      end
+    end
+
+    context "when input command is '?'" do
+      let(:input) { '?' }
+      it "shows help" do
+        allow(STDIN).to receive(:gets) { input }
+        expect(editor).to receive(:help)
         editor.execute_command(input)
       end
     end
