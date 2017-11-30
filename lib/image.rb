@@ -1,9 +1,8 @@
-require "pry"
 class Image
 
   DEFAULT_COLOUR = "O".freeze
 
-  attr_accessor  :canvas, :rows, :coloums
+  attr_accessor  :canvas
 
   def initialize(rows, coloums)
     @rows = rows

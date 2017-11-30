@@ -18,7 +18,15 @@ COMMANDS =   {
   end
 
   def run
-    input = $stdin.gets.chomp
+    @running = true
+    while @running
+      print '> '
+      input = gets.chomp
+      execute_command(input)
+    end
+  end
+
+  def execute_command(input)
     command, *args = input.split(" ")
     case command
     when "I"
@@ -26,4 +34,7 @@ COMMANDS =   {
     end
   end
 
+  def exit_session
+    @running = false
+  end
 end

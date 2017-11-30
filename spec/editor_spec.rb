@@ -2,7 +2,7 @@ require 'editor'
 
 describe Editor do
   subject(:editor) { described_class.new }
-  let(:image) { Image.new(1,2) } 
+  let(:image) { Image.new(1,2) }
 
   it "has commands mapper" do
     expect(described_class::COMMANDS).to_not be(nil)
@@ -14,15 +14,14 @@ describe Editor do
     end
   end
 
-  describe "#run" do
+  describe "#execute_command" do
     context "when input command is 'I'" do
       let(:input) { 'I 1 2' }
       it "creates the image" do
         allow(STDIN).to receive(:gets) {input}
         expect(editor).to receive(:create).with("1","2")
-        editor.run
+        editor.execute_command(input)
       end
     end
   end
-
 end
