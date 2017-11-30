@@ -15,7 +15,7 @@ class Image
   end
 
   def vertical(x, y1, y2, c)
-    canvas[y1.to_i-1..y2.to_i-1].map!{ |m| m[x.to_i-1] = c }
+    canvas[y1.to_i-1..y2.to_i-1].map! { |m| m[x.to_i-1] = c }
   end
 
   def horizontal(x1, x2, y, c)

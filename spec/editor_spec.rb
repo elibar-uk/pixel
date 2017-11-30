@@ -41,5 +41,55 @@ describe Editor do
         editor.execute_command(input)
       end
     end
+
+    context "when input command is H with agruments 1, 2, 3, 'C'" do
+      let(:input) { 'H 1 2 3 C' }
+      it "calls horizontal method on image" do
+        image = editor.create("3","4")
+        allow(STDIN).to receive(:gets) { input }
+        expect(image).to receive(:horizontal).with("1", "2", "3", "C")
+        editor.execute_command(input)
+      end
+    end
+
+    context "when input command is H with agruments 1, 2, 3, 'C'" do
+      let(:input) { 'L 1 2 C' }
+      it "calls horizontal method on image" do
+        image = editor.create("3","4")
+        allow(STDIN).to receive(:gets) { input }
+        expect(image).to receive(:colourize).with("1", "2", "C")
+        editor.execute_command(input)
+      end
+    end
+
+    context "when input command is H with agruments 1, 2, 3, 'C'" do
+      let(:input) { 'V 1 2 3 C' }
+      it "calls horizontal method on image" do
+        image = editor.create("3","4")
+        allow(STDIN).to receive(:gets) { input }
+        expect(image).to receive(:vertical).with("1", "2", "3", "C")
+        editor.execute_command(input)
+      end
+    end
+
+    context "when input command is H with agruments 1, 2, 3, 'C'" do
+      let(:input) { 'S' }
+      it "calls horizontal method on image" do
+        image = editor.create("1","2")
+        allow(STDIN).to receive(:gets) { input }
+        expect(image).to receive(:show)
+        editor.execute_command(input)
+      end
+    end
+
+    context "when input command is H with agruments 1, 2, 3, 'C'" do
+      let(:input) { 'C' }
+      it "calls horizontal method on image" do
+        image = editor.create("1","2")
+        allow(STDIN).to receive(:gets) { input }
+        expect(image).to receive(:clear)
+        editor.execute_command(input)
+      end
+    end
   end
 end

@@ -35,6 +35,8 @@ COMMANDS =   {
       exit_session
     when "?"
       help
+    else
+      image.send(COMMANDS.fetch(command), *args)
     end
   end
 
@@ -53,8 +55,6 @@ COMMANDS =   {
         S - Show the contents of the current image
         X - Terminate the session
         TEXT
-
     puts help_text
   end
-
 end
