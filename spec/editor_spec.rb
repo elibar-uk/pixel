@@ -18,8 +18,16 @@ describe Editor do
     context "when input command is 'I'" do
       let(:input) { 'I 1 2' }
       it "creates the image" do
-        allow(STDIN).to receive(:gets) {input}
+        allow(STDIN).to receive(:gets) { input }
         expect(editor).to receive(:create).with("1","2")
+        editor.execute_command(input)
+      end
+    end
+    context "when input command is X" do
+      let(:input) { 'X' }
+      it "exits the session" do
+        allow(STDIN).to receive(:gets) { input }
+        expect(editor).to receive(:exit_session)
         editor.execute_command(input)
       end
     end

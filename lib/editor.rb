@@ -31,7 +31,9 @@ COMMANDS =   {
     case command
     when "I"
       create(*args)
-    end
+    when "X"
+      exit_session
+    end  
   end
 
   def exit_session
